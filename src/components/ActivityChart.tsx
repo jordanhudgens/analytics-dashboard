@@ -82,7 +82,7 @@ const ActivityChart = (props: IChartProps) => {
   }
 
   return (
-    <div className="grid-1">
+    <div style={{ width: "100%" }}>
       <Chart
         options={data.options}
         series={data.series}

@@ -1,28 +1,52 @@
-html {
-    font-size: 62.5%; // 1rem is 10px
-}
-
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-family: 'montserrat';
+:root {
+  --highlight: #141926;
+  --primary: #129fc0;
+  --off-white: #f6f6f6;
+  --sans: "Noto Sans JP", sans-serif;
 }
 
 body {
-    overflow-x: hidden;
-    font-weight: normal;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-tap-highlight-color: transparent;
+  font-family: var(--sans);
+  margin: 0px;
+  background-color: var(--off-white);
 }
 
-.app {
-    margin-top: 2rem;
-    display: grid;
-    justify-items: center;
+.nav {
+  width: 100vw;
+  height: 150px;
+  background-color: var(--highlight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav > .logo {
+  width: 300px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 42px;
+}
+
+.content {
+  border-radius: 3px;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.09);
+  width: 1200px;
+  padding: 21px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 42px;
+  margin-bottom: 42px;
+
+  &__chart {
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--highlight);
+  }
 }

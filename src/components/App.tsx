@@ -3,6 +3,7 @@ import axios from "axios";
 import ActivityChart from "./ActivityChart";
 
 const API_TOKEN = "211e3ba5-273a-489c-a376-691c68db7527";
+const NAME = "Jordan Hudgens";
 const ENDPOINT = "https://devcamp.com/api/metrics/code_editor_grouped_by_day";
 
 interface IActivityElement {
@@ -28,7 +29,6 @@ const App = () => {
         },
       })
       .then((response: { data: IActivityElement[] }) => {
-        // console.log("DATA", response.data);
         const durations = response.data.map((stat: IActivityElement) =>
           stat.duration && stat.duration > 0
             ? (stat.duration / 3600).toFixed(2)
@@ -43,13 +43,19 @@ const App = () => {
       });
   };
 
-  return isLoading ? (
+  const content = isLoading ? (
     <div>Loading data...</div>
   ) : (
     <div>
-      <ActivityChart labels={dates} name={`hours`} series={series} />
+      <div className="content__chart">
+        <ActivityChart labels={dates} name={`hours`} series={series} />
+      </div>
+
+      <div className="content__title">Activity Chart for {NAME}</div>
     </div>
   );
+
+  return <div className="content">{content}</div>;
 };
 
 export default App;
