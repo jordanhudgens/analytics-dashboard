@@ -8,13 +8,12 @@ export interface IChartSeriesItem {
 }
 
 interface IChartProps {
-  key?: string;
   series: IChartSeriesItem[];
   labels: string[];
   name: string;
 }
 
-const LineChart = (props: IChartProps) => {
+const ActivityChart = (props: IChartProps) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -87,11 +86,11 @@ const LineChart = (props: IChartProps) => {
       <Chart
         options={data.options}
         series={data.series}
-        type="line"
+        type="area"
         height={420}
       />
     </div>
   );
 };
 
-export default LineChart;
+export default ActivityChart;
